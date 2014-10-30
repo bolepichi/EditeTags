@@ -17,6 +17,8 @@
 		1803BA201A00E0D700705C2F /* EditeTagsTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 1803BA1F1A00E0D700705C2F /* EditeTagsTests.m */; };
 		1803BA2B1A00ECFF00705C2F /* TagCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 1803BA2A1A00ECFF00705C2F /* TagCell.m */; };
 		1803BA2E1A01003800705C2F /* TagCollectionViewLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = 1803BA2D1A01003800705C2F /* TagCollectionViewLayout.m */; };
+		1855C68E1A01D82400279F96 /* TagFrame.m in Sources */ = {isa = PBXBuildFile; fileRef = 1855C68D1A01D82400279F96 /* TagFrame.m */; };
+		1855C6921A021B0900279F96 /* TagsDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = 1855C6911A021B0900279F96 /* TagsDataSource.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -47,6 +49,10 @@
 		1803BA2A1A00ECFF00705C2F /* TagCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TagCell.m; sourceTree = "<group>"; };
 		1803BA2C1A01003800705C2F /* TagCollectionViewLayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TagCollectionViewLayout.h; sourceTree = "<group>"; };
 		1803BA2D1A01003800705C2F /* TagCollectionViewLayout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TagCollectionViewLayout.m; sourceTree = "<group>"; };
+		1855C68C1A01D82400279F96 /* TagFrame.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TagFrame.h; sourceTree = "<group>"; };
+		1855C68D1A01D82400279F96 /* TagFrame.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TagFrame.m; sourceTree = "<group>"; };
+		1855C6901A021B0900279F96 /* TagsDataSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TagsDataSource.h; sourceTree = "<group>"; };
+		1855C6911A021B0900279F96 /* TagsDataSource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TagsDataSource.m; sourceTree = "<group>"; };
 		73F118B0BFED4D46D9F742BB /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		8A0D572D8958A6F134106A9A /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 		C4EB5CAF3F479E8DBCA0A774 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
@@ -108,6 +114,10 @@
 				1803BA0B1A00E0D700705C2F /* ViewController.m */,
 				1803BA2C1A01003800705C2F /* TagCollectionViewLayout.h */,
 				1803BA2D1A01003800705C2F /* TagCollectionViewLayout.m */,
+				1855C6901A021B0900279F96 /* TagsDataSource.h */,
+				1855C6911A021B0900279F96 /* TagsDataSource.m */,
+				1855C68C1A01D82400279F96 /* TagFrame.h */,
+				1855C68D1A01D82400279F96 /* TagFrame.m */,
 				1803BA0D1A00E0D700705C2F /* Main.storyboard */,
 				1803BA291A00ECFF00705C2F /* TagCell.h */,
 				1803BA2A1A00ECFF00705C2F /* TagCell.m */,
@@ -288,10 +298,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1855C68E1A01D82400279F96 /* TagFrame.m in Sources */,
 				1803BA2E1A01003800705C2F /* TagCollectionViewLayout.m in Sources */,
 				1803BA2B1A00ECFF00705C2F /* TagCell.m in Sources */,
 				1803BA0C1A00E0D700705C2F /* ViewController.m in Sources */,
 				1803BA091A00E0D700705C2F /* AppDelegate.m in Sources */,
+				1855C6921A021B0900279F96 /* TagsDataSource.m in Sources */,
 				1803BA061A00E0D700705C2F /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
