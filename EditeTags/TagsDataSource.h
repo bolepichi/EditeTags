@@ -20,8 +20,7 @@ typedef void(^ConfigureCollectionViewSize)(CGSize collectionViewSize);
 @property (copy,nonatomic) ConfigureCollectionViewSize configureCollectionViewBlock;
 
 -(TagFrame *)tagFrameAtIndexPath:(NSIndexPath *)indexPath;
-
--(NSArray *)indexPathsOfTagFrames:(CGRect)rect;
+-(NSArray *)indexPathsOfTagFrames;
 
 
 

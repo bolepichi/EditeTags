@@ -44,20 +44,24 @@
     for (int i=0; i<array.count; i++) {
         
         TagFrame *tagframe=[[TagFrame alloc]initWithtagString:[array objectAtIndex:i]
-                                                 lastTagFrame:i==0?nil:[self.layoutArray objectAtIndex:i-1]
-                                                 contentWidth:self.contentWdith];
+                                                 lastTagFrame:[self.layoutArray objectAtIndex:i]
+                                                 contentWidth:320];
         [self.layoutArray addObject:tagframe];
     }
     
-    TagFrame *tagTextFeildFrame = [[TagFrame alloc] initTextFeildTagFrameWithLastTagFrame:[self.layoutArray lastObject] contentWidth:self.contentWdith];
+    TagFrame *tagTextFeildFrame = [[TagFrame alloc] initTextFeildTagFrameWithLastTagFrame:[self.layoutArray lastObject] contentWidth:320];
     
     [self.layoutArray addObject:tagTextFeildFrame];
+    
+    
+    [self setCollectViewSize];
     
 }
 
 -(void)setCollectViewSize{
     TagFrame * textFeildTagFrame = [self.layoutArray lastObject];
     CGSize contentViewSize  = CGSizeMake(self.contentWdith, CGRectGetMaxY(textFeildTagFrame.frame));
+    
     if (self.configureCollectionViewBlock) {
         self.configureCollectionViewBlock(contentViewSize);
     }
@@ -74,28 +78,11 @@
 }
 
 
--(NSArray *)indexPathsOfTagFrames:(CGRect)rect{
-    
+-(NSArray *)indexPathsOfTagFrames{
     NSMutableArray *indexPaths = [NSMutableArray array];
-    
-    CGFloat minX = CGRectGetMinX(rect);
-    CGFloat minY = CGRectGetMidY(rect);
-    CGFloat maxX = CGRectGetMaxX(rect);
-    CGFloat maxY = CGRectGetMaxY(rect);
-    
     [self.layoutArray enumerateObjectsUsingBlock:^(TagFrame* tagFrame, NSUInteger idx, BOOL *stop) {
-       
-        CGFloat tagX = tagFrame.frame.origin.x;
-        CGFloat tagY = tagFrame.frame.origin.y;
-        CGFloat tagWidth = tagFrame.frame.size.width;
-        CGFloat tagHeight = tagFrame.frame.size.height;
-        
-        if ((tagY+tagHeight)>minY && tagY<maxY && (tagX+tagWidth>minX && tagX<maxX)) {
-            
             NSIndexPath *indexPath = [NSIndexPath indexPathForItem:idx inSection:0];
             [indexPaths addObject:indexPath];
-        }
-        
     }];
     return indexPaths;
 }
@@ -115,9 +102,8 @@
     
     TagFrame *  tagFrame = self.layoutArray[indexPath.item];
     
-    
-    
     TagCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"TagCell" forIndexPath:indexPath];
+    
     if (self.configureCellBlock) {
         self.configureCellBlock(cell, indexPath, tagFrame);
     }

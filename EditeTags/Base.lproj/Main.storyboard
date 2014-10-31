@@ -12,6 +12,7 @@
                     <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" id="9s8-HT-Edp">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="deviceRGB"/>
                         <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="X4o-IZ-XUp" customClass="TagCollectionViewLayout">
                             <size key="itemSize" width="50" height="50"/>
                             <size key="headerReferenceSize" width="0.0" height="0.0"/>
@@ -27,7 +28,7 @@
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" restorationIdentifier="TagCell" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="O3Q-24-Xwn">
-                                            <rect key="frame" x="0.0" y="39" width="104" height="22"/>
+                                            <rect key="frame" x="-27" y="14" width="104" height="22"/>
                                             <attributedString key="attributedText">
                                                 <fragment content="Label">
                                                     <attributes>
@@ -42,7 +43,7 @@
                                     </subviews>
                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 </view>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstAttribute="trailing" secondItem="O3Q-24-Xwn" secondAttribute="trailing" id="Fxl-C7-Ozk"/>
                                     <constraint firstAttribute="bottom" secondItem="O3Q-24-Xwn" secondAttribute="bottom" id="GS9-8U-BGf"/>
@@ -71,7 +72,7 @@
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="6ej-x5-NBh">
-                                            <rect key="frame" x="0.0" y="35" width="97" height="30"/>
+                                            <rect key="frame" x="0.0" y="12" width="97" height="30"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                             <textInputTraits key="textInputTraits"/>
                                         </textField>
@@ -82,14 +83,15 @@
                             </collectionViewCell>
                         </cells>
                         <connections>
-                            <outlet property="dataSource" destination="wsg-i6-zMu" id="Qhq-RL-Kpk"/>
-                            <outlet property="delegate" destination="wsg-i6-zMu" id="uSh-tn-4k5"/>
+                            <outlet property="dataSource" destination="5N7-gW-t4u" id="Y3a-7A-6Bu"/>
+                            <outlet property="delegate" destination="wsg-i6-zMu" id="uP6-eo-qOz"/>
                         </connections>
                     </collectionView>
                 </collectionViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="kwW-Ia-1rK" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <customObject id="5N7-gW-t4u" customClass="TagsDataSource"/>
             </objects>
-            <point key="canvasLocation" x="425" y="1049"/>
+            <point key="canvasLocation" x="395" y="1048"/>
         </scene>
     </scenes>
 </document>

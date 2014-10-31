@@ -7,7 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
-#import <UIKit/UIKit.h>
+#import "TagLayoutHelper.h"
 
 @interface TagFrame : NSObject
 
@@ -16,7 +16,6 @@
 @property (nonatomic,assign)CGFloat width;
 
 @property (nonatomic,assign)CGRect frame;
-
 
 @property (nonatomic,copy)NSString *tagString;
 -(instancetype)initWithtagString:(NSString*)tagString lastTagFrame:(TagFrame*)lasTagFrame contentWidth:(float)contentWidth;

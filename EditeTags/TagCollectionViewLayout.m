@@ -15,12 +15,8 @@
 
 - (CGSize)collectionViewContentSize
 {
-    // Don't scroll horizontally
     CGFloat contentWidth = self.collectionView.bounds.size.width;
-    
-    // Scroll vertically to display a full day
     CGFloat contentHeight = self.collectionView.bounds.size.height;
-    
     CGSize contentSize = CGSizeMake(contentWidth, contentHeight);
     return contentSize;
 }
@@ -28,16 +24,15 @@
 - (NSArray *)layoutAttributesForElementsInRect:(CGRect)rect
 {
     NSMutableArray *layoutAttributes = [NSMutableArray array];
-
+    
     // Cells
-    NSArray *visibleIndexPaths = [self indexPathsOfItemsInRect:rect];
+    NSArray *visibleIndexPaths = [self indexPathsOfItemsInRect];
     for (NSIndexPath *indexPath in visibleIndexPaths) {
         UICollectionViewLayoutAttributes *attributes = [self layoutAttributesForItemAtIndexPath:indexPath];
         [layoutAttributes addObject:attributes];
     }
     return layoutAttributes;
 }
-
 
 - (UICollectionViewLayoutAttributes *)layoutAttributesForItemAtIndexPath:(NSIndexPath *)indexPath
 {
@@ -53,19 +48,12 @@
     return YES;
 }
 
-
-
 #pragma mark - Helpers
--(NSArray *)indexPathsOfItemsInRect:(CGRect)rect{
-    
+-(NSArray *)indexPathsOfItemsInRect{
     TagsDataSource *dataSource = self.collectionView.dataSource;
-    
-    NSArray *indexPaths = [dataSource indexPathsOfTagFrames:rect];
-    
+    NSArray *indexPaths = [dataSource indexPathsOfTagFrames];
     return indexPaths;
 }
-
-
 -(CGRect)frameForTagFrame:(TagFrame*)tagFrame{
     
     CGRect frame = CGRectMake(tagFrame.point.x, tagFrame.point.y, tagFrame.width, 20);
