@@ -8,6 +8,11 @@
 
 #import "TagsDataSource.h"
 
+
+
+
+
+
 @interface  TagsDataSource()
 
 @property (strong,nonatomic)NSMutableArray *layoutArray;
@@ -22,13 +27,21 @@
 - (void)awakeFromNib
 {
     self.layoutArray = [NSMutableArray array];
-    
-    [self setLayoutData:@[@"北京",@"摄影",@"插画",@"艺术家",@"大话西游",@"降魔篇",@"超级无敌但华诞",@"爱在西元前",@"asdf",@"阿的说法水电费",@"阿萨德发时代",@"噶三等功",@"阿萨德发时代分",@"阿萨德发时代发生过",@"阿萨德发时代发时代发",@"阿萨德发时代发瓦斯的服务",@"2时代发",@"大风",@"asdf",@"阿萨德发时代",@"阿萨德发时代",@"阿萨德发时代",@"阿萨德发时代",@"阿萨德发时代发时代发时代",@"阿萨德发时代",@"阿萨德发时代发",@"阿萨德发时代发"]];
-    
-    
 }
 
-#pragma mark _ TagsDataSource Helper
+
+
+-(id)init
+{
+    self = [super init];
+    if (self) {
+        
+        self.layoutArray = [NSMutableArray array];
+        
+    }
+    return self;
+}
+
 
 //更新布局数组
 -(void)setLayoutData:(NSArray*)array{
@@ -69,6 +82,7 @@
 }
 
 
+
 #pragma mark - TagsDataSource
 
 
@@ -102,12 +116,32 @@
     
     TagFrame *  tagFrame = self.layoutArray[indexPath.item];
     
-    TagCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"TagCell" forIndexPath:indexPath];
     
-    if (self.configureCellBlock) {
-        self.configureCellBlock(cell, indexPath, tagFrame);
+    
+    if (indexPath.item==0) {
+        
+        ImageCell *imageCell = [collectionView dequeueReusableCellWithReuseIdentifier:@"ImageCell" forIndexPath:indexPath];
+        
+        
+        return imageCell;
     }
-    return cell;
+    else if(indexPath.item == self.layoutArray.count-1){
+        
+        TextFeildCell *textFeildCell = [collectionView dequeueReusableCellWithReuseIdentifier:@"TextFeildCell" forIndexPath:indexPath];
+        
+        return textFeildCell;
+        
+    }
+    else
+    {
+       TagStringCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"TagStringCell.h" forIndexPath:indexPath];
+        
+        if (self.configureTagStringCellBlock) {
+            self.configureTagStringCellBlock(cell, indexPath, tagFrame);
+        }
+        return cell;
+
+    }
 }
 
 

@@ -99,7 +99,7 @@ static const CGFloat TextFeildMinWidth = 50;
     
     CGPoint lastPoint =  lastTagFrame.point;
     CGFloat lastWidth = lastTagFrame.width;
-    CGFloat shengyuWidth = contentWidth-lastPoint.x-lastWidth -SectionInsetRight;
+    CGFloat shengyuWidth = contentWidth-lastPoint.x-lastWidth -SectionInsetRight -HorizontalSpacing;
     
     if (shengyuWidth<TextFeildMinWidth) {
         self.width = contentWidth - SectionInsetRight- SectionInsetLeft;

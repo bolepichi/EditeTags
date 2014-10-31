@@ -24,18 +24,18 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-     TagsDataSource *dataSource = (TagsDataSource *)self.collectionView.dataSource;
-     dataSource.configureCellBlock = ^(TagCell *cell, NSIndexPath *indexPath, TagFrame *tagFrame) {
-        
-         if(tagFrame.tagString){
-             cell.tagLabel.text = [NSString stringWithFormat:@"#%@",tagFrame.tagString];
-         }
-         
-         
-    };
-    dataSource.configureCollectionViewBlock = ^(CGSize contentSize){
-        self.collectionView.frame = CGRectMake(CGRectGetMidX(self.collectionView.frame),CGRectGetMidY(self.collectionView.frame), CGRectGetWidth(self.collectionView.frame), contentSize.height);
-    };
+//     TagsDataSource *dataSource = (TagsDataSource *)self.collectionView.dataSource;
+//     dataSource.configureCellBlock = ^(TagCell *cell, NSIndexPath *indexPath, TagFrame *tagFrame) {
+//        
+//         if(tagFrame.tagString){
+//             cell.tagLabel.text = [NSString stringWithFormat:@"#%@",tagFrame.tagString];
+//         }
+//         
+//         
+//    };
+//    dataSource.configureCollectionViewBlock = ^(CGSize contentSize){
+//        self.collectionView.frame = CGRectMake(CGRectGetMidX(self.collectionView.frame),CGRectGetMidY(self.collectionView.frame), CGRectGetWidth(self.collectionView.frame), contentSize.height);
+//    };
 
   
 }

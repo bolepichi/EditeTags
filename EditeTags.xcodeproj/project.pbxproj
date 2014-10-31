@@ -20,6 +20,13 @@
 		1855C68E1A01D82400279F96 /* TagFrame.m in Sources */ = {isa = PBXBuildFile; fileRef = 1855C68D1A01D82400279F96 /* TagFrame.m */; };
 		1855C6921A021B0900279F96 /* TagsDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = 1855C6911A021B0900279F96 /* TagsDataSource.m */; };
 		18FC96751A032AF0003A6A7A /* TagLayoutHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 18FC96741A032AF0003A6A7A /* TagLayoutHelper.m */; };
+		18FC967B1A033BE3003A6A7A /* TagsView.m in Sources */ = {isa = PBXBuildFile; fileRef = 18FC967A1A033BE3003A6A7A /* TagsView.m */; };
+		18FC967F1A035DA6003A6A7A /* ImageCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 18FC967D1A035DA6003A6A7A /* ImageCell.m */; };
+		18FC96801A035DA6003A6A7A /* ImageCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 18FC967E1A035DA6003A6A7A /* ImageCell.xib */; };
+		18FC96841A035DD6003A6A7A /* TagStringCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 18FC96821A035DD6003A6A7A /* TagStringCell.m */; };
+		18FC96851A035DD6003A6A7A /* TagStringCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 18FC96831A035DD6003A6A7A /* TagStringCell.xib */; };
+		18FC96891A035DEB003A6A7A /* TextFeildCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 18FC96871A035DEB003A6A7A /* TextFeildCell.m */; };
+		18FC968A1A035DEB003A6A7A /* TextFeildCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 18FC96881A035DEB003A6A7A /* TextFeildCell.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -56,6 +63,17 @@
 		1855C6911A021B0900279F96 /* TagsDataSource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TagsDataSource.m; sourceTree = "<group>"; };
 		18FC96731A032AF0003A6A7A /* TagLayoutHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TagLayoutHelper.h; sourceTree = "<group>"; };
 		18FC96741A032AF0003A6A7A /* TagLayoutHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TagLayoutHelper.m; sourceTree = "<group>"; };
+		18FC96791A033BE3003A6A7A /* TagsView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TagsView.h; sourceTree = "<group>"; };
+		18FC967A1A033BE3003A6A7A /* TagsView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TagsView.m; sourceTree = "<group>"; };
+		18FC967C1A035DA6003A6A7A /* ImageCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ImageCell.h; sourceTree = "<group>"; };
+		18FC967D1A035DA6003A6A7A /* ImageCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ImageCell.m; sourceTree = "<group>"; };
+		18FC967E1A035DA6003A6A7A /* ImageCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ImageCell.xib; sourceTree = "<group>"; };
+		18FC96811A035DD6003A6A7A /* TagStringCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TagStringCell.h; sourceTree = "<group>"; };
+		18FC96821A035DD6003A6A7A /* TagStringCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TagStringCell.m; sourceTree = "<group>"; };
+		18FC96831A035DD6003A6A7A /* TagStringCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TagStringCell.xib; sourceTree = "<group>"; };
+		18FC96861A035DEB003A6A7A /* TextFeildCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TextFeildCell.h; sourceTree = "<group>"; };
+		18FC96871A035DEB003A6A7A /* TextFeildCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TextFeildCell.m; sourceTree = "<group>"; };
+		18FC96881A035DEB003A6A7A /* TextFeildCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TextFeildCell.xib; sourceTree = "<group>"; };
 		73F118B0BFED4D46D9F742BB /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		8A0D572D8958A6F134106A9A /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 		C4EB5CAF3F479E8DBCA0A774 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
@@ -115,6 +133,17 @@
 				1803BA081A00E0D700705C2F /* AppDelegate.m */,
 				1803BA0A1A00E0D700705C2F /* ViewController.h */,
 				1803BA0B1A00E0D700705C2F /* ViewController.m */,
+				18FC96791A033BE3003A6A7A /* TagsView.h */,
+				18FC967A1A033BE3003A6A7A /* TagsView.m */,
+				18FC967C1A035DA6003A6A7A /* ImageCell.h */,
+				18FC967D1A035DA6003A6A7A /* ImageCell.m */,
+				18FC967E1A035DA6003A6A7A /* ImageCell.xib */,
+				18FC96811A035DD6003A6A7A /* TagStringCell.h */,
+				18FC96821A035DD6003A6A7A /* TagStringCell.m */,
+				18FC96831A035DD6003A6A7A /* TagStringCell.xib */,
+				18FC96861A035DEB003A6A7A /* TextFeildCell.h */,
+				18FC96871A035DEB003A6A7A /* TextFeildCell.m */,
+				18FC96881A035DEB003A6A7A /* TextFeildCell.xib */,
 				18FC96721A032810003A6A7A /* TagCollectionViewLayout */,
 				1803BA0D1A00E0D700705C2F /* Main.storyboard */,
 				1803BA291A00ECFF00705C2F /* TagCell.h */,
@@ -259,7 +288,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				1803BA0F1A00E0D700705C2F /* Main.storyboard in Resources */,
+				18FC968A1A035DEB003A6A7A /* TextFeildCell.xib in Resources */,
+				18FC96801A035DA6003A6A7A /* ImageCell.xib in Resources */,
 				1803BA141A00E0D700705C2F /* LaunchScreen.xib in Resources */,
+				18FC96851A035DD6003A6A7A /* TagStringCell.xib in Resources */,
 				1803BA111A00E0D700705C2F /* Images.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -312,6 +344,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				1855C68E1A01D82400279F96 /* TagFrame.m in Sources */,
+				18FC96891A035DEB003A6A7A /* TextFeildCell.m in Sources */,
+				18FC967F1A035DA6003A6A7A /* ImageCell.m in Sources */,
+				18FC96841A035DD6003A6A7A /* TagStringCell.m in Sources */,
+				18FC967B1A033BE3003A6A7A /* TagsView.m in Sources */,
 				1803BA2E1A01003800705C2F /* TagCollectionViewLayout.m in Sources */,
 				1803BA2B1A00ECFF00705C2F /* TagCell.m in Sources */,
 				1803BA0C1A00E0D700705C2F /* ViewController.m in Sources */,

@@ -7,15 +7,22 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "TagCell.h"
+#import "TagStringCell.h"
+#import "ImageCell.h"
+#import "TextFeildCell.h"
 #import "TagFrame.h"
 
-typedef  void (^ConfigureCellBlock)(TagCell *cell, NSIndexPath *indexPath, TagFrame* tagFrame);
+typedef  void (^ConfigureTagStringCellBlock)(TagStringCell *cell, NSIndexPath *indexPath, TagFrame* tagFrame);
+typedef void(^ConfigureTextFeildBlock)(TextFeildCell *textFeildCell, NSIndexPath *indexPath, TagFrame* tagFrame);
+
+
 
 typedef void(^ConfigureCollectionViewSize)(CGSize collectionViewSize);
 @interface TagsDataSource : NSObject<UICollectionViewDataSource>
 
-@property (copy, nonatomic) ConfigureCellBlock configureCellBlock;
+@property (copy, nonatomic) ConfigureTagStringCellBlock configureTagStringCellBlock;
+
+@property (copy, nonatomic) ConfigureTextFeildBlock configureTextFeildBlock;
 
 @property (copy,nonatomic) ConfigureCollectionViewSize configureCollectionViewBlock;
 
