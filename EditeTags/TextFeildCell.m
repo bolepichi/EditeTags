@@ -12,8 +12,9 @@
 
 @property (nonatomic, assign)BOOL isInput;
 
+@property (weak, nonatomic) IBOutlet UITextField *textFeild;
 
-@property (weak, nonatomic) IBOutlet UIButton *shadeButton;
+
 
 @end
 
@@ -21,6 +22,7 @@
 
 - (void)awakeFromNib {
     
+    self.textFeild.delegate = self;
     
     self.isInput = YES;
 }

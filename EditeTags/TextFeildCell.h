@@ -9,5 +9,6 @@
 #import <UIKit/UIKit.h>
 
 @interface TextFeildCell : UICollectionViewCell<UITextFieldDelegate>
+@property (weak, nonatomic) IBOutlet UIButton *shadeButton;
 
 @end

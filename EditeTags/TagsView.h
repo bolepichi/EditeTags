@@ -10,4 +10,7 @@
 
 @interface TagsView : UIView
 
+
+-(void)intalInterfaceWith:(CGRect)frame;
+
 @end

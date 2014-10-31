@@ -38,6 +38,8 @@
         
         self.layoutArray = [NSMutableArray array];
         
+        [self setLayoutData:[NSArray array]];
+        
     }
     return self;
 }

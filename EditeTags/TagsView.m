@@ -32,12 +32,18 @@ typedef enum : NSUInteger {
 
 @implementation TagsView
 
+
+-(void)awakeFromNib
+{
+    //[self intalInterfaceWith:self.bounds];
+}
+
 -(id)initWithFrame:(CGRect)frame
 {
     self = [super initWithFrame:frame];
     if (self) {
         
-        [self intalInterfaceWith:frame];
+        [self intalInterfaceWith:self.bounds];
         
     }
     return self;
@@ -46,6 +52,11 @@ typedef enum : NSUInteger {
 
 
 -(void)intalInterfaceWith:(CGRect)frame{
+    
+    
+    
+    
+    
     
     TagCollectionViewLayout *layout = [[TagCollectionViewLayout alloc] init];
     
@@ -56,12 +67,26 @@ typedef enum : NSUInteger {
     [tagCollectionView registerNib:[UINib nibWithNibName:@"TextFeildCell" bundle:nil] forCellWithReuseIdentifier:@"TextFeildCell"];
     
     self.dataSource = [[TagsDataSource alloc]init];
-    
     [tagCollectionView setDataSource:self.dataSource];
-    
     [tagCollectionView setDelegate:self];
-    
     [self addSubview:tagCollectionView];
+    
+    
+  
+    
+    
+    
+    self.dataSource.configureTagStringCellBlock = ^(TagStringCell *cell, NSIndexPath *indexPath, TagFrame* tagFrame){
+        
+        
+    };
+    
+    self.dataSource.configureTextFeildBlock = ^ (TextFeildCell *textFeildCell, NSIndexPath *indexPath, TagFrame* tagFrame){
+        
+        
+        
+    };
+    
     
 }
 

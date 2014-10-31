@@ -5,13 +5,9 @@
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6244"/>
     </dependencies>
     <objects>
-        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="TextFeildCell">
-            <connections>
-                <outlet property="shadeButton" destination="kiy-er-dSy" id="fe4-Te-xiB"/>
-            </connections>
-        </placeholder>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="TextFeildCell" id="gTV-IL-0wX">
+        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="TextFeildCell" id="gTV-IL-0wX" customClass="TextFeildCell">
             <rect key="frame" x="0.0" y="0.0" width="128" height="50"/>
             <autoresizingMask key="autoresizingMask"/>
             <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
@@ -25,10 +21,6 @@
                             <outlet property="delegate" destination="-1" id="WZH-th-yUe"/>
                         </connections>
                     </textField>
-                    <view contentMode="scaleToFill" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="HxQ-Rz-3Vy">
-                        <rect key="frame" x="0.0" y="0.0" width="8" height="50"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                    </view>
                     <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kiy-er-dSy">
                         <rect key="frame" x="0.0" y="0.0" width="128" height="49"/>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="deviceRGB"/>
@@ -36,7 +28,7 @@
                             <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                         </state>
                         <connections>
-                            <action selector="cancelShade:" destination="-1" eventType="touchUpInside" id="ozc-9U-MfC"/>
+                            <action selector="cancelShade:" destination="gTV-IL-0wX" eventType="touchUpInside" id="t91-lL-HE6"/>
                         </connections>
                     </button>
                 </subviews>
@@ -44,14 +36,15 @@
             </view>
             <constraints>
                 <constraint firstItem="z0F-Ez-sdC" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="7cd-d8-rhw"/>
-                <constraint firstItem="HxQ-Rz-3Vy" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="In3-t3-Zou"/>
                 <constraint firstAttribute="bottom" secondItem="z0F-Ez-sdC" secondAttribute="bottom" id="WLX-if-QIH"/>
                 <constraint firstItem="z0F-Ez-sdC" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="als-fU-ZSQ"/>
-                <constraint firstAttribute="bottom" secondItem="HxQ-Rz-3Vy" secondAttribute="bottom" id="kwp-pE-JSI"/>
                 <constraint firstAttribute="trailing" secondItem="z0F-Ez-sdC" secondAttribute="trailing" id="lwD-Hi-OO9"/>
-                <constraint firstItem="HxQ-Rz-3Vy" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="qKf-uQ-7cQ"/>
             </constraints>
             <size key="customSize" width="128" height="50"/>
+            <connections>
+                <outlet property="shadeButton" destination="kiy-er-dSy" id="cZ9-No-uu0"/>
+                <outlet property="textFeild" destination="z0F-Ez-sdC" id="Kkc-U8-pPb"/>
+            </connections>
             <point key="canvasLocation" x="104" y="205"/>
         </collectionViewCell>
     </objects>
