@@ -15,6 +15,7 @@
                 <subviews>
                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="IqC-me-XVL">
                         <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
+                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="deviceRGB"/>
                     </imageView>
                 </subviews>
                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
@@ -25,7 +26,7 @@
                 <constraint firstItem="IqC-me-XVL" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="f3d-rJ-d1C"/>
                 <constraint firstAttribute="trailing" secondItem="IqC-me-XVL" secondAttribute="trailing" id="g2k-HP-1Z5"/>
             </constraints>
-            <point key="canvasLocation" x="398" y="285"/>
+            <point key="canvasLocation" x="5" y="283"/>
         </collectionViewCell>
     </objects>
 </document>

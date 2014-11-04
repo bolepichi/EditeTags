@@ -1,4 +1,4 @@
-//
+                                                                                                                                                                                                                                                                                         //
 //  TagFrame.m
 //  EditeTags
 //
@@ -11,8 +11,8 @@
 
 #import "TagFrame.h"
 
-static const CGFloat HorizontalSpacing = 7;
-static const CGFloat VerticalSpacing =7;
+static const CGFloat HorizontalSpacing = 5;
+static const CGFloat VerticalSpacing =5;
 static const CGFloat RowHeight = 20;
 static const CGFloat SectionInsetLeft = 5;
 static const CGFloat SectionInseTop = 20;
@@ -59,18 +59,11 @@ static const CGFloat TextFeildMinWidth = 50;
 
 -(void)setDataWithLastTagFrame:(TagFrame*)lasTagFrame
                   contentWdith:(CGFloat)contentWidth tagString:(NSString*)tagString{
-    
-    
-    CGFloat stringWidth = [TagLayoutHelper getAttributedWidthWithString:tagString];
-   
-
+    CGFloat stringWidth = [TagLayoutHelper getAttributedWidthWithString:tagString]+1;
     if (lasTagFrame) {
-       
         CGPoint lastPoint =  lasTagFrame.point;
         CGFloat lastWidth = lasTagFrame.width;
-        
         CGFloat width = stringWidth+SectionInsetRight+SectionInsetLeft>contentWidth?(contentWidth-SectionInsetRight-SectionInsetLeft):stringWidth;
-        
         if (lastPoint.x+lastWidth+width+HorizontalSpacing+SectionInsetRight>contentWidth) {
             self.point=CGPointMake(SectionInsetLeft, lastPoint.y+RowHeight+VerticalSpacing);
             
@@ -86,10 +79,10 @@ static const CGFloat TextFeildMinWidth = 50;
     }
     else
     {
-        CGFloat width = stringWidth+SectionInsetRight+SectionInsetLeft+ImageCellWidth>contentWidth?(contentWidth-ImageCellWidth-SectionInsetRight-SectionInsetLeft):stringWidth;
-        self.point=CGPointMake(SectionInsetLeft+ImageCellWidth, SectionInseTop);
+        CGFloat width = stringWidth+SectionInsetRight+SectionInsetLeft+ImageCellWidth+HorizontalSpacing>contentWidth?(contentWidth-ImageCellWidth-SectionInsetRight-SectionInsetLeft-HorizontalSpacing):stringWidth;
+        self.point=CGPointMake(SectionInsetLeft+ImageCellWidth+HorizontalSpacing, SectionInseTop);
         
-        self.frame = CGRectMake(SectionInsetLeft+ImageCellWidth, SectionInseTop, width, RowHeight);
+        self.frame = CGRectMake(SectionInsetLeft+ImageCellWidth+HorizontalSpacing, SectionInseTop, width, RowHeight);
         
         self.width = width;
     }
@@ -99,7 +92,8 @@ static const CGFloat TextFeildMinWidth = 50;
     
     CGPoint lastPoint =  lastTagFrame.point;
     CGFloat lastWidth = lastTagFrame.width;
-    CGFloat shengyuWidth = contentWidth-lastPoint.x-lastWidth -SectionInsetRight -HorizontalSpacing;
+    
+    CGFloat shengyuWidth = contentWidth-(lastPoint.x + lastWidth + SectionInsetRight + HorizontalSpacing);
     
     if (shengyuWidth<TextFeildMinWidth) {
         self.width = contentWidth - SectionInsetRight- SectionInsetLeft;

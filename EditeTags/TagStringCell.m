@@ -22,12 +22,9 @@
     // Initialization code
 }
 
-
--(void)setString:(NSString *)string
+-(void)setTextString:(NSString *)textString
 {
-    self.string = string;
-    self.tagString.text = string;
-    self.tagString.attributedText = [TagLayoutHelper getAttributedWithSting:string];
+    self.tagString.attributedText = [TagLayoutHelper getAttributedWithSting:textString];
     
 }
 

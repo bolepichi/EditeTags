@@ -13,7 +13,7 @@
             <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
                 <rect key="frame" x="0.0" y="0.0" width="128" height="50"/>
                 <subviews>
-                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="z0F-Ez-sdC">
+                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text=" " minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="z0F-Ez-sdC">
                         <rect key="frame" x="0.0" y="0.0" width="128" height="50"/>
                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                         <textInputTraits key="textInputTraits"/>
@@ -21,9 +21,9 @@
                             <outlet property="delegate" destination="-1" id="WZH-th-yUe"/>
                         </connections>
                     </textField>
-                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kiy-er-dSy">
+                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kiy-er-dSy">
                         <rect key="frame" x="0.0" y="0.0" width="128" height="49"/>
-                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="deviceRGB"/>
+                        <color key="backgroundColor" red="1" green="0.31822779921272393" blue="0.34307446279087694" alpha="1" colorSpace="calibratedRGB"/>
                         <state key="normal">
                             <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                         </state>
@@ -34,18 +34,23 @@
                 </subviews>
                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
             </view>
+            <color key="backgroundColor" red="0.32549020649999999" green="0.49803924560000001" blue="0.71764707569999997" alpha="1" colorSpace="deviceRGB"/>
             <constraints>
                 <constraint firstItem="z0F-Ez-sdC" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="7cd-d8-rhw"/>
+                <constraint firstAttribute="trailing" secondItem="kiy-er-dSy" secondAttribute="trailing" id="LF1-3b-IMZ"/>
+                <constraint firstAttribute="bottom" secondItem="kiy-er-dSy" secondAttribute="bottom" constant="1" id="VJw-3z-naK"/>
                 <constraint firstAttribute="bottom" secondItem="z0F-Ez-sdC" secondAttribute="bottom" id="WLX-if-QIH"/>
                 <constraint firstItem="z0F-Ez-sdC" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="als-fU-ZSQ"/>
                 <constraint firstAttribute="trailing" secondItem="z0F-Ez-sdC" secondAttribute="trailing" id="lwD-Hi-OO9"/>
+                <constraint firstItem="kiy-er-dSy" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="n1w-uZ-U1i"/>
+                <constraint firstItem="kiy-er-dSy" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="x4L-HU-rSd"/>
             </constraints>
             <size key="customSize" width="128" height="50"/>
             <connections>
                 <outlet property="shadeButton" destination="kiy-er-dSy" id="cZ9-No-uu0"/>
                 <outlet property="textFeild" destination="z0F-Ez-sdC" id="Kkc-U8-pPb"/>
             </connections>
-            <point key="canvasLocation" x="104" y="205"/>
+            <point key="canvasLocation" x="-54" y="97"/>
         </collectionViewCell>
     </objects>
 </document>

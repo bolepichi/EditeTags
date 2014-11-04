@@ -8,7 +8,13 @@
 
 #import <UIKit/UIKit.h>
 
+typedef void(^AddTagString)(NSString *string);
+
+
 @interface TextFeildCell : UICollectionViewCell<UITextFieldDelegate>
 @property (weak, nonatomic) IBOutlet UIButton *shadeButton;
+
+
+@property (nonatomic,strong)AddTagString addTagBlock;
 
 @end

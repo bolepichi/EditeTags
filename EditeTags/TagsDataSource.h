@@ -31,4 +31,9 @@ typedef void(^ConfigureCollectionViewSize)(CGSize collectionViewSize);
 
 
 
+-(void)setLayoutData:(NSArray*)array;
+
+
+-(void)addTag:(NSString *)tagString addTagFrame:(void (^)(TagFrame *addtagFrame, NSInteger index))addtagFrameBolck;
+
 @end

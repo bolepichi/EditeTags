@@ -10,7 +10,7 @@
 
 @interface TagStringCell : UICollectionViewCell
 
-@property (strong, nonatomic)NSString *string;
+@property (strong, nonatomic)NSString *textString;
 
 
 

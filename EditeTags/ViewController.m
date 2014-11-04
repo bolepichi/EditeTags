@@ -17,8 +17,7 @@
 @interface ViewController ()
 
 
-@property (weak, nonatomic) IBOutlet TagsView *tagsView;
-
+@property (nonatomic,strong) TagsView *tagsView;
 
 @end
 
@@ -27,8 +26,13 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
+    self.tagsView = [[TagsView alloc] initWithFrame:CGRectMake(10, 70, 300, 200)];
 
-    [self.tagsView   intalInterfaceWith:self.tagsView.bounds];
+   
+    
+    [self.view addSubview:self.tagsView];
+    
+     [self.tagsView   intalInterfaceWith:self.tagsView.bounds];
 
   
 }

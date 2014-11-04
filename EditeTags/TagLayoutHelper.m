@@ -22,6 +22,8 @@
 +(CGFloat)getAttributedWidthWithString:(NSString *)string
 {
     NSMutableAttributedString *attriString = [TagLayoutHelper getAttributedWithSting:string];
+    
+    
     return [attriString size].width;
 }
 
@@ -49,7 +51,7 @@
                                     NSFontAttributeName:[UIFont systemFontOfSize:12.0f],
                                     NSParagraphStyleAttributeName:paragraphStyle
                                     };
-    [attriString setAttributes:dicattributes range:NSMakeRange(0, string.length)];
+    [attriString setAttributes:dicattributes range:NSMakeRange(0, string.length+1)];
     return attriString;
 }
 

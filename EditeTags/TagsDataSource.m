@@ -45,6 +45,27 @@
 }
 
 
+
+-(void)addTag:(NSString *)tagString addTagFrame:(void (^)(TagFrame *addtagFrame, NSInteger index))addtagFrameBolck{
+    
+    TagFrame *lastTagFrame = [self.layoutArray objectAtIndex:self.layoutArray.count-2];
+    
+    TagFrame *addTagFrame =  [[TagFrame alloc] initWithtagString:tagString lastTagFrame:self.layoutArray.count==2?nil:lastTagFrame contentWidth:300];
+    
+    [self.layoutArray insertObject:addTagFrame atIndex:self.layoutArray.count-1];
+    
+    [self.layoutArray removeLastObject];
+
+    TagFrame *textfeildTagFrame = [[TagFrame alloc] initTextFeildTagFrameWithLastTagFrame:addTagFrame contentWidth:300];
+    
+    [self.layoutArray addObject:textfeildTagFrame];
+    
+    addtagFrameBolck(addTagFrame,self.layoutArray.count-2);
+
+}
+
+
+
 //更新布局数组
 -(void)setLayoutData:(NSArray*)array{
     if (self) {
@@ -60,16 +81,16 @@
         
         TagFrame *tagframe=[[TagFrame alloc]initWithtagString:[array objectAtIndex:i]
                                                  lastTagFrame:[self.layoutArray objectAtIndex:i]
-                                                 contentWidth:320];
+                                                 contentWidth:300];
         [self.layoutArray addObject:tagframe];
     }
     
-    TagFrame *tagTextFeildFrame = [[TagFrame alloc] initTextFeildTagFrameWithLastTagFrame:[self.layoutArray lastObject] contentWidth:320];
+    TagFrame *tagTextFeildFrame = [[TagFrame alloc] initTextFeildTagFrameWithLastTagFrame:[self.layoutArray lastObject] contentWidth:300];
     
     [self.layoutArray addObject:tagTextFeildFrame];
     
     
-    [self setCollectViewSize];
+    NSLog(@"%d",self.layoutArray.count);
     
 }
 
@@ -123,24 +144,26 @@
     if (indexPath.item==0) {
         
         ImageCell *imageCell = [collectionView dequeueReusableCellWithReuseIdentifier:@"ImageCell" forIndexPath:indexPath];
-        
-        
         return imageCell;
     }
     else if(indexPath.item == self.layoutArray.count-1){
         
         TextFeildCell *textFeildCell = [collectionView dequeueReusableCellWithReuseIdentifier:@"TextFeildCell" forIndexPath:indexPath];
         
+        if (self.configureTextFeildBlock) {
+            self.configureTextFeildBlock(textFeildCell,indexPath,tagFrame);
+        }
         return textFeildCell;
         
     }
     else
     {
-       TagStringCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"TagStringCell.h" forIndexPath:indexPath];
+       TagStringCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"TagStringCell" forIndexPath:indexPath];
         
         if (self.configureTagStringCellBlock) {
             self.configureTagStringCellBlock(cell, indexPath, tagFrame);
         }
+        
         return cell;
 
     }

@@ -28,6 +28,8 @@ typedef enum : NSUInteger {
 
 @property (assign, nonatomic)TagsViewStates *state;
 
+@property (strong, nonatomic)NSMutableArray *tagArray;
+
 @end
 
 @implementation TagsView
@@ -43,7 +45,9 @@ typedef enum : NSUInteger {
     self = [super initWithFrame:frame];
     if (self) {
         
-        [self intalInterfaceWith:self.bounds];
+       
+        self.tagArray = [NSMutableArray array];
+            
         
     }
     return self;
@@ -53,15 +57,10 @@ typedef enum : NSUInteger {
 
 -(void)intalInterfaceWith:(CGRect)frame{
     
-    
-    
-    
-    
-    
     TagCollectionViewLayout *layout = [[TagCollectionViewLayout alloc] init];
     
     UICollectionView *tagCollectionView = [[UICollectionView alloc] initWithFrame:frame collectionViewLayout:layout];
-    
+    tagCollectionView.backgroundColor =[UIColor whiteColor];
     [tagCollectionView registerNib:[UINib nibWithNibName:@"ImageCell" bundle:nil] forCellWithReuseIdentifier:@"ImageCell"];
     [tagCollectionView registerNib:[UINib nibWithNibName:@"TagStringCell" bundle:nil] forCellWithReuseIdentifier:@"TagStringCell"];
     [tagCollectionView registerNib:[UINib nibWithNibName:@"TextFeildCell" bundle:nil] forCellWithReuseIdentifier:@"TextFeildCell"];
@@ -71,28 +70,32 @@ typedef enum : NSUInteger {
     [tagCollectionView setDelegate:self];
     [self addSubview:tagCollectionView];
     
-    
-  
-    
-    
-    
+     __weak typeof(self) tagView = self;
     self.dataSource.configureTagStringCellBlock = ^(TagStringCell *cell, NSIndexPath *indexPath, TagFrame* tagFrame){
-        
-        
+
+        cell.textString = tagFrame.tagString;
     };
-    
     self.dataSource.configureTextFeildBlock = ^ (TextFeildCell *textFeildCell, NSIndexPath *indexPath, TagFrame* tagFrame){
         
-        
+        textFeildCell.addTagBlock = ^(NSString *tagString){
+          
+            [tagView.dataSource addTag:tagString addTagFrame:^(TagFrame *addtagFrame, NSInteger index) {
+               
+                NSIndexPath *addIndexPath = [NSIndexPath indexPathForItem:index inSection:0];
+                
+                [tagCollectionView insertItemsAtIndexPaths:@[addIndexPath]];
+                
+            }];
+        };
+    
+    };
+    self.dataSource.configureCollectionViewBlock =^( CGSize  size ){
+        [tagView setFrame:CGRectMake(CGRectGetMinX(tagView.frame), CGRectGetMinY(tagView.frame), CGRectGetWidth(tagView.frame), size.height)];
+        [tagCollectionView  setFrame:CGRectMake(CGRectGetMinX(tagView.frame), CGRectGetMinY(tagView.frame), CGRectGetWidth(tagView.frame), size.height)];
         
     };
     
-    
 }
-
-
-
-
 
 
 @end

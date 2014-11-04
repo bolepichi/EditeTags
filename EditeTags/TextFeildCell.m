@@ -51,11 +51,24 @@
 
 - (BOOL)textFieldShouldReturn:(UITextField *)textField{
     
-    NSString *tagString =  [textField.text substringFromIndex:1];
+    if (textField.text.length>3) {
+        
+         NSString *tagString =  [textField.text substringFromIndex:1];
+        
+        NSLog(@"%@",tagString);
+        
+        if (self.addTagBlock) {
+            self.addTagBlock(tagString);
+        }
+        
+    }
+    
+    
+
+    
+    
     
     // 校验 1.至少两位 2.开头不能为空格
-    
-    
     return YES;
 }
 
