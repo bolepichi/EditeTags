@@ -16,24 +16,20 @@ typedef  void (^ConfigureTagStringCellBlock)(TagStringCell *cell, NSIndexPath *i
 typedef void(^ConfigureTextFeildBlock)(TextFeildCell *textFeildCell, NSIndexPath *indexPath, TagFrame* tagFrame);
 
 
-
-typedef void(^ConfigureCollectionViewSize)(CGSize collectionViewSize);
 @interface TagsDataSource : NSObject<UICollectionViewDataSource>
 
 @property (copy, nonatomic) ConfigureTagStringCellBlock configureTagStringCellBlock;
 
 @property (copy, nonatomic) ConfigureTextFeildBlock configureTextFeildBlock;
 
-@property (copy,nonatomic) ConfigureCollectionViewSize configureCollectionViewBlock;
 
 -(TagFrame *)tagFrameAtIndexPath:(NSIndexPath *)indexPath;
 -(NSArray *)indexPathsOfTagFrames;
 
-
-
 -(void)setLayoutData:(NSArray*)array;
 
-
 -(void)addTag:(NSString *)tagString addTagFrame:(void (^)(TagFrame *addtagFrame, NSInteger index))addtagFrameBolck;
+
+-(void)setCollectViewSize:(void(^)(CGSize Size))collectionViewSizeBlock;
 
 @end

@@ -94,17 +94,14 @@
     
 }
 
--(void)setCollectViewSize{
+
+
+-(void)setCollectViewSize:(void(^)(CGSize Size))collectionViewSizeBlock{
+    
     TagFrame * textFeildTagFrame = [self.layoutArray lastObject];
-    CGSize contentViewSize  = CGSizeMake(self.contentWdith, CGRectGetMaxY(textFeildTagFrame.frame));
-    
-    if (self.configureCollectionViewBlock) {
-        self.configureCollectionViewBlock(contentViewSize);
-    }
-    
+    CGSize contentViewSize  = CGSizeMake(300, CGRectGetMaxY(textFeildTagFrame.frame)+20);
+    collectionViewSizeBlock(contentViewSize);
 }
-
-
 
 #pragma mark - TagsDataSource
 

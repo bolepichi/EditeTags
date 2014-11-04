@@ -12,13 +12,10 @@
 #import "TagCollectionViewLayout.h"
 
 
-
 typedef enum : NSUInteger {
     TagsViewStateEditing=0,
     TagsViewStatesInputDone,
 } TagsViewStates;
-
-
 
 @interface TagsView ()<UICollectionViewDelegate>
 
@@ -28,7 +25,8 @@ typedef enum : NSUInteger {
 
 @property (assign, nonatomic)TagsViewStates *state;
 
-@property (strong, nonatomic)NSMutableArray *tagArray;
+
+@property (strong ,nonatomic) UITableView *tagTableView;
 
 @end
 
@@ -45,15 +43,9 @@ typedef enum : NSUInteger {
     self = [super initWithFrame:frame];
     if (self) {
         
-       
-        self.tagArray = [NSMutableArray array];
-            
-        
     }
     return self;
 }
-
-
 
 -(void)intalInterfaceWith:(CGRect)frame{
     
@@ -70,6 +62,9 @@ typedef enum : NSUInteger {
     [tagCollectionView setDelegate:self];
     [self addSubview:tagCollectionView];
     
+    
+    self.collectionView = tagCollectionView;
+    
      __weak typeof(self) tagView = self;
     self.dataSource.configureTagStringCellBlock = ^(TagStringCell *cell, NSIndexPath *indexPath, TagFrame* tagFrame){
 
@@ -77,25 +72,72 @@ typedef enum : NSUInteger {
     };
     self.dataSource.configureTextFeildBlock = ^ (TextFeildCell *textFeildCell, NSIndexPath *indexPath, TagFrame* tagFrame){
         
+
+        
         textFeildCell.addTagBlock = ^(NSString *tagString){
           
             [tagView.dataSource addTag:tagString addTagFrame:^(TagFrame *addtagFrame, NSInteger index) {
-               
-                NSIndexPath *addIndexPath = [NSIndexPath indexPathForItem:index inSection:0];
                 
-                [tagCollectionView insertItemsAtIndexPaths:@[addIndexPath]];
+                /**
+                 *  添加item
+                 */
+                [tagView addTagWithTagFrame:addtagFrame index:index];
+              
+                
+                [tagView.dataSource setCollectViewSize:^(CGSize size) {
+                    
+                   
+                    [tagView setContentViewSize:size];
+                    
+                }];
                 
             }];
         };
-    
-    };
-    self.dataSource.configureCollectionViewBlock =^( CGSize  size ){
-        [tagView setFrame:CGRectMake(CGRectGetMinX(tagView.frame), CGRectGetMinY(tagView.frame), CGRectGetWidth(tagView.frame), size.height)];
-        [tagCollectionView  setFrame:CGRectMake(CGRectGetMinX(tagView.frame), CGRectGetMinY(tagView.frame), CGRectGetWidth(tagView.frame), size.height)];
         
+
+        //编辑标签回调
+        textFeildCell.editingBlock = ^(NSString *edittingString){
+            
+        };
+        
+        textFeildCell.stopSearchBlock = ^(){
+            [tagView stopSearchTag];
+        };
+
     };
     
 }
 
+//重新设置高度
+-(void)setContentViewSize:(CGSize)size{
+    
+    CGFloat x =   self.collectionView.frame.origin.x;
+    CGFloat y =  self.collectionView.frame.origin.y;
+    
+    CGFloat width = size.width;
+    CGFloat height = size.height;
+    
+    [self.collectionView setFrame:CGRectMake(x, y, width, height)];
+    
+    [self setFrame:CGRectMake(self.frame.origin.x, self.frame.origin.y, width, height)];
+}
+
+
+//添加一行
+-(void)addTagWithTagFrame:(TagFrame*)tagFrame index:(NSInteger)index{
+    
+    NSIndexPath *addIndexPath = [NSIndexPath indexPathForItem:index inSection:0];
+    
+    [self.collectionView insertItemsAtIndexPaths:@[addIndexPath]];
+}
+
+//停止搜索
+-(void)stopSearchTag{
+    
+}
+//搜索
+-(void)searchTag{
+    
+}
 
 @end

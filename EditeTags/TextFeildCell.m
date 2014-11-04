@@ -12,7 +12,7 @@
 
 @property (nonatomic, assign)BOOL isInput;
 
-@property (weak, nonatomic) IBOutlet UITextField *textFeild;
+
 
 
 
@@ -27,19 +27,33 @@
     self.isInput = YES;
 }
 
+
+- (IBAction)textFeildTextChanged:(UITextField *)sender {
+    // 开始搜索
+    if (sender.text.length>1) {
+        NSString *tagString = [sender.text substringFromIndex:1];
+        if (_editingBlock) {
+            _editingBlock(tagString);
+        }
+    }
+    
+    // 停止搜索
+    if ([sender.text isEqualToString:@" "] && self.isInput==YES) {
+        
+        if (_stopSearchBlock) {
+              _stopSearchBlock();
+        }
+    }
+}
+
 - (BOOL)textField:(UITextField *)textField shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString *)string{
     
-    NSLog(@"old string : %@",textField.text);
-    
     if (range.location ==0 && range.length==1) {
-        
-        NSLog(@"选中最后一条");
-        
-        textField.text = @"  ";
+
+        textField.text = @" ";
         [self.shadeButton setHidden:NO];
         self.isInput = NO;
     }
-    
     return self.isInput;
 }
 - (IBAction)cancelShade:(id)sender {
@@ -54,19 +68,12 @@
     if (textField.text.length>3) {
         
          NSString *tagString =  [textField.text substringFromIndex:1];
-        
-        NSLog(@"%@",tagString);
-        
         if (self.addTagBlock) {
+            textField.text =@" ";
             self.addTagBlock(tagString);
         }
         
     }
-    
-    
-
-    
-    
     
     // 校验 1.至少两位 2.开头不能为空格
     return YES;

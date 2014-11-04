@@ -19,6 +19,9 @@
 		1803BA2E1A01003800705C2F /* TagCollectionViewLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = 1803BA2D1A01003800705C2F /* TagCollectionViewLayout.m */; };
 		1855C68E1A01D82400279F96 /* TagFrame.m in Sources */ = {isa = PBXBuildFile; fileRef = 1855C68D1A01D82400279F96 /* TagFrame.m */; };
 		1855C6921A021B0900279F96 /* TagsDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = 1855C6911A021B0900279F96 /* TagsDataSource.m */; };
+		18CF79CE1A08C07C007DB333 /* TagsSearchTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = 18CF79CD1A08C07C007DB333 /* TagsSearchTableView.m */; };
+		18CF7A041A08CB73007DB333 /* SearchTagCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 18CF7A021A08CB73007DB333 /* SearchTagCell.m */; };
+		18CF7A051A08CB73007DB333 /* SearchTagCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 18CF7A031A08CB73007DB333 /* SearchTagCell.xib */; };
 		18FC96751A032AF0003A6A7A /* TagLayoutHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 18FC96741A032AF0003A6A7A /* TagLayoutHelper.m */; };
 		18FC967B1A033BE3003A6A7A /* TagsView.m in Sources */ = {isa = PBXBuildFile; fileRef = 18FC967A1A033BE3003A6A7A /* TagsView.m */; };
 		18FC967F1A035DA6003A6A7A /* ImageCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 18FC967D1A035DA6003A6A7A /* ImageCell.m */; };
@@ -61,6 +64,11 @@
 		1855C68D1A01D82400279F96 /* TagFrame.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TagFrame.m; sourceTree = "<group>"; };
 		1855C6901A021B0900279F96 /* TagsDataSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TagsDataSource.h; sourceTree = "<group>"; };
 		1855C6911A021B0900279F96 /* TagsDataSource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TagsDataSource.m; sourceTree = "<group>"; };
+		18CF79CC1A08C07C007DB333 /* TagsSearchTableView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TagsSearchTableView.h; sourceTree = "<group>"; };
+		18CF79CD1A08C07C007DB333 /* TagsSearchTableView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TagsSearchTableView.m; sourceTree = "<group>"; };
+		18CF7A011A08CB73007DB333 /* SearchTagCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SearchTagCell.h; sourceTree = "<group>"; };
+		18CF7A021A08CB73007DB333 /* SearchTagCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SearchTagCell.m; sourceTree = "<group>"; };
+		18CF7A031A08CB73007DB333 /* SearchTagCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SearchTagCell.xib; sourceTree = "<group>"; };
 		18FC96731A032AF0003A6A7A /* TagLayoutHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TagLayoutHelper.h; sourceTree = "<group>"; };
 		18FC96741A032AF0003A6A7A /* TagLayoutHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TagLayoutHelper.m; sourceTree = "<group>"; };
 		18FC96791A033BE3003A6A7A /* TagsView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TagsView.h; sourceTree = "<group>"; };
@@ -135,6 +143,11 @@
 				1803BA0B1A00E0D700705C2F /* ViewController.m */,
 				18FC96791A033BE3003A6A7A /* TagsView.h */,
 				18FC967A1A033BE3003A6A7A /* TagsView.m */,
+				18CF79CC1A08C07C007DB333 /* TagsSearchTableView.h */,
+				18CF79CD1A08C07C007DB333 /* TagsSearchTableView.m */,
+				18CF7A011A08CB73007DB333 /* SearchTagCell.h */,
+				18CF7A021A08CB73007DB333 /* SearchTagCell.m */,
+				18CF7A031A08CB73007DB333 /* SearchTagCell.xib */,
 				18FC967C1A035DA6003A6A7A /* ImageCell.h */,
 				18FC967D1A035DA6003A6A7A /* ImageCell.m */,
 				18FC967E1A035DA6003A6A7A /* ImageCell.xib */,
@@ -291,6 +304,7 @@
 				18FC968A1A035DEB003A6A7A /* TextFeildCell.xib in Resources */,
 				18FC96801A035DA6003A6A7A /* ImageCell.xib in Resources */,
 				1803BA141A00E0D700705C2F /* LaunchScreen.xib in Resources */,
+				18CF7A051A08CB73007DB333 /* SearchTagCell.xib in Resources */,
 				18FC96851A035DD6003A6A7A /* TagStringCell.xib in Resources */,
 				1803BA111A00E0D700705C2F /* Images.xcassets in Resources */,
 			);
@@ -343,12 +357,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				18CF7A041A08CB73007DB333 /* SearchTagCell.m in Sources */,
 				1855C68E1A01D82400279F96 /* TagFrame.m in Sources */,
 				18FC96891A035DEB003A6A7A /* TextFeildCell.m in Sources */,
 				18FC967F1A035DA6003A6A7A /* ImageCell.m in Sources */,
 				18FC96841A035DD6003A6A7A /* TagStringCell.m in Sources */,
 				18FC967B1A033BE3003A6A7A /* TagsView.m in Sources */,
 				1803BA2E1A01003800705C2F /* TagCollectionViewLayout.m in Sources */,
+				18CF79CE1A08C07C007DB333 /* TagsSearchTableView.m in Sources */,
 				1803BA2B1A00ECFF00705C2F /* TagCell.m in Sources */,
 				1803BA0C1A00E0D700705C2F /* ViewController.m in Sources */,
 				1803BA091A00E0D700705C2F /* AppDelegate.m in Sources */,
