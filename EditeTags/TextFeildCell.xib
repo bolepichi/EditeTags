@@ -18,6 +18,7 @@
                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                         <textInputTraits key="textInputTraits"/>
                         <connections>
+                            <action selector="EndEditing:" destination="gTV-IL-0wX" eventType="editingDidEnd" id="zQx-D0-Wxt"/>
                             <action selector="textFeildTextChanged:" destination="gTV-IL-0wX" eventType="editingChanged" id="Mzo-ac-IQu"/>
                             <outlet property="delegate" destination="-1" id="WZH-th-yUe"/>
                         </connections>

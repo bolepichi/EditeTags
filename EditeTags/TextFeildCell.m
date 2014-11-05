@@ -26,7 +26,11 @@
     
     self.isInput = YES;
 }
-
+- (IBAction)EndEditing:(id)sender {
+    
+    
+    
+}
 
 - (IBAction)textFeildTextChanged:(UITextField *)sender {
     // 开始搜索
@@ -48,20 +52,47 @@
 
 - (BOOL)textField:(UITextField *)textField shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString *)string{
     
-    if (range.location ==0 && range.length==1) {
-
-        textField.text = @" ";
-        [self.shadeButton setHidden:NO];
-        self.isInput = NO;
+    if (self.isInput==YES) {
+        
+        if (range.location ==0 && range.length==1) {
+            textField.text = @" ";
+            self.isInput = NO;
+            
+            if (self.selectTagBlock) {
+                self.selectTagBlock();
+            }
+        }
+        
+    }
+    else
+    {
+        if (range.location ==0 && range.length==1) {
+            textField.text = @"  ";
+            
+            self.isInput = YES;
+            if (self.deleteTagBlock) {
+                self.deleteTagBlock();
+            }
+        }
     }
     return self.isInput;
 }
-- (IBAction)cancelShade:(id)sender {
 
-    [self.shadeButton setHidden:YES];
-    self.isInput = YES;
+
+-(void)setIsInput:(BOOL)isInput
+{
+    if (isInput) {
+        [self.shadeButton setHidden:YES];
+    }else{
+        [self.shadeButton setHidden:NO];
+    }
+    _isInput=isInput;
 }
 
+- (IBAction)cancelShade:(id)sender {
+   
+    self.isInput = YES;
+}
 
 - (BOOL)textFieldShouldReturn:(UITextField *)textField{
     
@@ -74,7 +105,6 @@
         }
         
     }
-    
     // 校验 1.至少两位 2.开头不能为空格
     return YES;
 }

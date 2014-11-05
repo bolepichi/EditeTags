@@ -18,6 +18,8 @@ typedef void(^ConfigureTextFeildBlock)(TextFeildCell *textFeildCell, NSIndexPath
 
 @interface TagsDataSource : NSObject<UICollectionViewDataSource>
 
+@property (assign,nonatomic)CGFloat contentWdith;
+
 @property (copy, nonatomic) ConfigureTagStringCellBlock configureTagStringCellBlock;
 
 @property (copy, nonatomic) ConfigureTextFeildBlock configureTextFeildBlock;
@@ -31,5 +33,8 @@ typedef void(^ConfigureTextFeildBlock)(TextFeildCell *textFeildCell, NSIndexPath
 -(void)addTag:(NSString *)tagString addTagFrame:(void (^)(TagFrame *addtagFrame, NSInteger index))addtagFrameBolck;
 
 -(void)setCollectViewSize:(void(^)(CGSize Size))collectionViewSizeBlock;
+
+-(void)deleteTag:(NSInteger)index complateBlock:(void (^)())complateBlock;
+
 
 @end

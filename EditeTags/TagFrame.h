@@ -21,4 +21,8 @@
 -(instancetype)initWithtagString:(NSString*)tagString lastTagFrame:(TagFrame*)lasTagFrame contentWidth:(float)contentWidth;
 -(instancetype)initFirstImageTagFrame;
 -(instancetype)initTextFeildTagFrameWithLastTagFrame:(TagFrame*)lastTagFrame contentWidth:(CGFloat)contentWidth;
+
+
+-(void)setupTextFeildFrame:(TagFrame*)lastTagFrame contentWidth:(CGFloat)contentWidth;
+-(void)setTagStringFrameWithLastTagFrame:(TagFrame*)lastTagFrame contentWidth:(CGFloat)contentWidth;
 @end

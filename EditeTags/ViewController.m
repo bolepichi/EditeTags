@@ -27,9 +27,21 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    self.tagsView = [[TagsView alloc] initWithFrame:CGRectMake(10, 70, 300, 60)];
+    CGFloat contentWidth = 300.0f;
+
     [self.view addSubview:self.tagsView];
-     [self.tagsView   intalInterfaceWith:self.tagsView.bounds];
+
+    [self.tagsView setTagsArray:nil contentWidth:contentWidth setViewHeight:^(CGFloat height) {
+        
+    } getTagsBlock:^(NSArray *tags) {
+        
+    }];
+    
+    [self.tagsView   intalInterfaceWith:self.tagsView.bounds];
+    
+    
+    
+    
 
   
 }

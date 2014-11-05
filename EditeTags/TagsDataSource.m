@@ -17,8 +17,6 @@
 
 @property (strong,nonatomic)NSMutableArray *layoutArray;
 
-@property (assign,nonatomic)CGFloat contentWdith;
-
 @end
 
 
@@ -50,13 +48,13 @@
     
     TagFrame *lastTagFrame = [self.layoutArray objectAtIndex:self.layoutArray.count-2];
     
-    TagFrame *addTagFrame =  [[TagFrame alloc] initWithtagString:tagString lastTagFrame:self.layoutArray.count==2?nil:lastTagFrame contentWidth:300];
+    TagFrame *addTagFrame =  [[TagFrame alloc] initWithtagString:tagString lastTagFrame:self.layoutArray.count==2?nil:lastTagFrame contentWidth:_contentWdith];
     
     [self.layoutArray insertObject:addTagFrame atIndex:self.layoutArray.count-1];
     
     [self.layoutArray removeLastObject];
 
-    TagFrame *textfeildTagFrame = [[TagFrame alloc] initTextFeildTagFrameWithLastTagFrame:addTagFrame contentWidth:300];
+    TagFrame *textfeildTagFrame = [[TagFrame alloc] initTextFeildTagFrameWithLastTagFrame:addTagFrame contentWidth:_contentWdith];
     
     [self.layoutArray addObject:textfeildTagFrame];
     
@@ -66,7 +64,7 @@
 
 
 
-//更新布局数组
+//设置布局数组
 -(void)setLayoutData:(NSArray*)array{
     if (self) {
         [self.layoutArray removeAllObjects];
@@ -81,11 +79,11 @@
         
         TagFrame *tagframe=[[TagFrame alloc]initWithtagString:[array objectAtIndex:i]
                                                  lastTagFrame:[self.layoutArray objectAtIndex:i]
-                                                 contentWidth:300];
+                                                 contentWidth:_contentWdith];
         [self.layoutArray addObject:tagframe];
     }
     
-    TagFrame *tagTextFeildFrame = [[TagFrame alloc] initTextFeildTagFrameWithLastTagFrame:[self.layoutArray lastObject] contentWidth:300];
+    TagFrame *tagTextFeildFrame = [[TagFrame alloc] initTextFeildTagFrameWithLastTagFrame:[self.layoutArray lastObject] contentWidth:_contentWdith];
     
     [self.layoutArray addObject:tagTextFeildFrame];
     
@@ -95,11 +93,44 @@
 }
 
 
+//更新布局数组
+
+-(void)updateLayoutData{
+    
+    for (int idx=1; idx<self.layoutArray.count; idx++) {
+        
+        
+        if (idx!=self.layoutArray.count-1) {
+            
+            TagFrame *tagFrame = self.layoutArray[idx];
+            
+            [tagFrame setTagStringFrameWithLastTagFrame:idx==1?nil:self.layoutArray[idx-1] contentWidth:_contentWdith];
+        }
+        else
+        {
+            TagFrame *textFeildFrame = [self.layoutArray lastObject];
+            
+            [textFeildFrame setupTextFeildFrame:self.layoutArray[idx-1] contentWidth:_contentWdith];
+        }
+        
+    }
+    
+}
+
+-(void)deleteTag:(NSInteger)index complateBlock:(void (^)())complateBlock{
+    
+    [self.layoutArray removeObjectAtIndex:index];
+    [self updateLayoutData];
+    
+    complateBlock();
+    
+}
+
 
 -(void)setCollectViewSize:(void(^)(CGSize Size))collectionViewSizeBlock{
     
     TagFrame * textFeildTagFrame = [self.layoutArray lastObject];
-    CGSize contentViewSize  = CGSizeMake(300, CGRectGetMaxY(textFeildTagFrame.frame)+20);
+    CGSize contentViewSize  = CGSizeMake(_contentWdith, CGRectGetMaxY(textFeildTagFrame.frame)+20);
     collectionViewSizeBlock(contentViewSize);
 }
 

@@ -48,10 +48,7 @@ static const CGFloat TextFeildMinWidth = 50;
     self = [super init];
     if (self) {
         
-        
         [self setupTextFeildFrame:lastTagFrame contentWidth:contentWidth];
-        
-        
         
     }
     return self;
@@ -108,6 +105,37 @@ static const CGFloat TextFeildMinWidth = 50;
         self.frame = CGRectMake(lastPoint.x+lastWidth+HorizontalSpacing, lastPoint.y,shengyuWidth, RowHeight);
     }
     
+}
+
+-(void)setTagStringFrameWithLastTagFrame:(TagFrame*)lastTagFrame contentWidth:(CGFloat)contentWidth{
+    CGFloat stringWidth = [TagLayoutHelper getAttributedWidthWithString:_tagString]+1;
+    if (lastTagFrame) {
+        CGPoint lastPoint =  lastTagFrame.point;
+        CGFloat lastWidth = lastTagFrame.width;
+        CGFloat width = stringWidth+SectionInsetRight+SectionInsetLeft>contentWidth?(contentWidth-SectionInsetRight-SectionInsetLeft):stringWidth;
+        if (lastPoint.x+lastWidth+width+HorizontalSpacing+SectionInsetRight>contentWidth) {
+            self.point=CGPointMake(SectionInsetLeft, lastPoint.y+RowHeight+VerticalSpacing);
+            
+            self.frame = CGRectMake(SectionInsetLeft, lastPoint.y+RowHeight+VerticalSpacing, width, RowHeight);
+        }
+        else
+        {
+            self.point=CGPointMake(lastPoint.x+lastWidth+HorizontalSpacing, lastPoint.y);
+            
+            self.frame = CGRectMake(lastPoint.x+lastWidth+HorizontalSpacing, lastPoint.y, width, RowHeight);
+        }
+        self.width = width;
+    }
+    else
+    {
+        CGFloat width = stringWidth+SectionInsetRight+SectionInsetLeft+ImageCellWidth+HorizontalSpacing>contentWidth?(contentWidth-ImageCellWidth-SectionInsetRight-SectionInsetLeft-HorizontalSpacing):stringWidth;
+        self.point=CGPointMake(SectionInsetLeft+ImageCellWidth+HorizontalSpacing, SectionInseTop);
+        
+        self.frame = CGRectMake(SectionInsetLeft+ImageCellWidth+HorizontalSpacing, SectionInseTop, width, RowHeight);
+        
+        self.width = width;
+    }
+
 }
 
 
